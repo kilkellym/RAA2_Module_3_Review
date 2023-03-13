@@ -28,12 +28,19 @@
                 <DataGridTextColumn Header="Sheet #" Width="100" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
                 <DataGridCheckBoxColumn Header="Is Placeholder" Width="100" IsReadOnly="false" Binding="{Binding IsPlaceholder, Mode=TwoWay}"/>
-                <DataGridComboBoxColumn Header="Title Block" x:Name="cmbTitleblock" IsReadOnly="False" Width="200"/>
+                <DataGridComboBoxColumn Header="View" x:Name="cmbViews" IsReadOnly="False" Width="200"
+                           SelectedItemBinding="{Binding SelectedView}" DisplayMemberPath="Name"/>
+                <DataGridComboBoxColumn Header="Title Block" x:Name="cmbTitleblock" IsReadOnly="False" Width="200"
+                           SelectedItemBinding="{Binding Titleblock}" DisplayMemberPath="Name"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="left">
             <Button x:Name="btnAdd" Content="+" Width="30" Height="30" Margin="0,0,10,0" Click="btnAdd_Click"/>
             <Button x:Name="btnRemove" Content="-" Width="30" Height="30" Click="btnRemove_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="btnLoad" Content="Load" Width="90" Height="30" Margin="0,0,10,0" Click="btnLoad_Click"/>
+            <Button x:Name="btnSave" Content="Save" Width="90" Height="30" Click="btnSave_Click" />
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>

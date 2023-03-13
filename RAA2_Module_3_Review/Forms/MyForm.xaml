@@ -1,0 +1,43 @@
+﻿<Window x:Class="RAA2_Module_3_Review.MyForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAA2_Module_3_Review"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Content="Sheet Maker" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="28"/>
+        <Label Content="Enter Sheet Information Below:" Grid.Row="1" VerticalAlignment="Center"/>
+        <DataGrid x:Name="SheetGrid" Grid.Row="2"
+                  GridLinesVisibility="All"
+                  AlternatingRowBackground="AliceBlue"
+                  CanUserAddRows="true"
+                  SelectionMode="Single"
+                  AutoGenerateColumns="false"
+                  EnableColumnVirtualization="false"
+                  EnableRowVirtualization="false">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sheet #" Width="100" IsReadOnly="False" Binding="{Binding SheetNumber, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Sheet Name" Width="*" IsReadOnly="False" Binding="{Binding SheetName, Mode=TwoWay}"/>
+                <DataGridCheckBoxColumn Header="Is Placeholder" Width="100" IsReadOnly="false" Binding="{Binding IsPlaceholder, Mode=TwoWay}"/>
+                <DataGridComboBoxColumn Header="Title Block" x:Name="cmbTitleblock" IsReadOnly="False" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="left">
+            <Button x:Name="btnAdd" Content="+" Width="30" Height="30" Margin="0,0,10,0" Click="btnAdd_Click"/>
+            <Button x:Name="btnRemove" Content="-" Width="30" Height="30" Click="btnRemove_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
